@@ -22,8 +22,27 @@ function formatCurrencyBRL(value) {
   //retorna o valor formatado
   return value
 }
-
+//Previne o comportamento padrao de recarregar a pagina
 form.onsubmit = (event) => {
   event.preventDefault()
+//cria um onjeto com os detalhes na nova despesa
+  const newExpense = {
+    id: new Date().getTime(),
+    expense: expense.value,
+    category_id: category.value,
+    category_name: category.options[category.selectedIndex].text,
+    amount: amount.value,
+    created_at: new Date(),
   }
+//chama a funcao para adicionar a nova despesa
+  expenseAdd(newExpense)
+}
 
+function expenseAdd (newExpense) {
+  try {
+    
+  } catch (error) {
+    alert('Nao foi possivel atualizar a lista de despesas')
+    console.log(error)
+  }
+}
